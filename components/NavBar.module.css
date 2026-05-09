@@ -1,0 +1,17 @@
+@reference "../app/globals.css";
+
+.nav {
+  @apply flex items-center justify-between px-6 py-4 bg-gray-900 border-b border-gray-800;
+}
+
+.logo {
+  @apply text-white font-bold text-xl;
+}
+
+.links {
+  @apply flex items-center gap-6;
+}
+
+.link {
+  @apply text-gray-400 text-sm hover:text-white transition-colors;
+}

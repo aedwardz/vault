@@ -1,0 +1,43 @@
+@reference "../app/globals.css";
+
+.container {
+  @apply flex items-center justify-between p-4 bg-gray-900 rounded-xl border border-gray-800 hover:border-gray-700 transition-colors mb-3;
+}
+
+/* rest of your styles */
+
+.icon {
+  @apply w-10 h-10 rounded-full flex items-center justify-center text-lg;
+}
+
+.debit {
+  @apply bg-red-500/10 text-red-400;
+}
+
+.credit {
+  @apply bg-green-500/10 text-green-400;
+}
+
+.description {
+  @apply text-white font-medium text-sm;
+}
+
+.date {
+  @apply text-gray-500 text-xs mt-0.5;
+}
+
+.category {
+  @apply text-gray-400 text-xs mt-0.5;
+}
+
+.amount {
+  @apply font-semibold text-sm;
+}
+
+.amountDebit {
+  @apply text-red-400;
+}
+
+.amountCredit {
+  @apply text-green-400;
+}
