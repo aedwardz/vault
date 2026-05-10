@@ -1,5 +1,5 @@
 import React from 'react';
-import { Transaction } from '@/app/lib/types';
+import { Transaction } from '@/lib/types';
 import styles from './TransactionCard.module.css';
 
 const TransactionCard = ({ transaction }: { transaction: Transaction }) => {

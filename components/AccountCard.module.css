@@ -1,0 +1,17 @@
+@reference "../app/globals.css";
+
+.card {
+  @apply bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-gray-600 transition-colors cursor-pointer;
+}
+
+.name {
+  @apply text-white font-bold text-lg mb-1;
+}
+
+.type {
+  @apply text-gray-400 text-sm capitalize mb-3;
+}
+
+.institution {
+  @apply text-gray-500 text-xs;
+}

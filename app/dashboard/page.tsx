@@ -3,7 +3,8 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import styles from './dashboard.module.css';
 import Link from 'next/link';
-import { Account } from '../lib/types';
+import { Account } from '../../lib/types';
+import AccountCard from '@/components/AccountCard';
 
 const Dashboard = () => {
   const [token, setToken] = useState<string | null>(null);
@@ -33,10 +34,12 @@ const Dashboard = () => {
       ) : (
         <h1>Please connect your bank account to view the dashboard.</h1>
       )}
+      {/* Accounts Section */}
+      <h1>Accounts</h1>
       <div className={styles.accounts}>
         {accounts.map((account: any) => (
           <Link key={account.id} href={`/account/${account.id}`}>
-            <div className={styles.card}>{account.name}</div>
+            <AccountCard account={account}></AccountCard>
           </Link>
         ))}
       </div>
