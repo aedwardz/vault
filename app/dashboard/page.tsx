@@ -3,25 +3,29 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import styles from './dashboard.module.css';
 import Link from 'next/link';
-import { Account } from '@/lib/types';
+import { Account, Balances } from '@/lib/types';
 import AccountCard from '@/components/AccountCard';
+import { useRouter } from 'next/navigation';
 
 const Dashboard = () => {
   const [token, setToken] = useState<string | null>(null);
   const [accounts, setAccounts] = useState<Account[]>([]);
+  const router = useRouter();
 
   useEffect(() => {
     const accessToken = localStorage.getItem('teller_access_token');
     setToken(accessToken);
 
-    if (!accessToken) return;
+    if (!accessToken) {
+      router.push('/');
+      return;
+    }
 
     fetch('/api/accounts', {
       headers: { 'x-access-token': accessToken },
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setAccounts(data.data);
       });
   }, []);
@@ -39,7 +43,7 @@ const Dashboard = () => {
       <div className={styles.accounts}>
         {accounts.map((account: any) => (
           <Link key={account.id} href={`/account/${account.id}`}>
-            <AccountCard account={account}></AccountCard>
+            <AccountCard account={account} token={token}></AccountCard>
           </Link>
         ))}
       </div>

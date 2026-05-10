@@ -32,3 +32,9 @@ export interface Account {
   last_four: number;
   status: string;
 }
+
+export interface Balances {
+  ledger: number;
+  account_id: string;
+  available: number;
+}
