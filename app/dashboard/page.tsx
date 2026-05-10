@@ -1,22 +1,22 @@
-"use client";
-import React, { useEffect } from "react";
-import { useState } from "react";
-import styles from './dashboard.module.css'
-import Link from "next/link";
-
+'use client';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
+import styles from './dashboard.module.css';
+import Link from 'next/link';
+import { Account } from '../lib/types';
 
 const Dashboard = () => {
   const [token, setToken] = useState<string | null>(null);
-  const [accounts, setAccounts] = useState([]);
+  const [accounts, setAccounts] = useState<Account[]>([]);
 
   useEffect(() => {
-    const accessToken = localStorage.getItem("teller_access_token");
+    const accessToken = localStorage.getItem('teller_access_token');
     setToken(accessToken);
 
     if (!accessToken) return;
 
-    fetch("/api/accounts", {
-      headers: { "x-access-token": accessToken },
+    fetch('/api/accounts', {
+      headers: { 'x-access-token': accessToken },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -25,7 +25,7 @@ const Dashboard = () => {
       });
   }, []);
 
-  console.log("Token in Dashboard:", token);
+  console.log('Token in Dashboard:', token);
   return (
     <div className={styles.container}>
       {token ? (
@@ -36,7 +36,7 @@ const Dashboard = () => {
       <div className={styles.accounts}>
         {accounts.map((account: any) => (
           <Link key={account.id} href={`/account/${account.id}`}>
-              <div  className={styles.card}>{account.name}</div>
+            <div className={styles.card}>{account.name}</div>
           </Link>
         ))}
       </div>
