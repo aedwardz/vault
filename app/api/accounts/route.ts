@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
       );
     }
     const response = await tellerGet('/accounts', accessToken);
-    return NextResponse.json({ data: response });
+    return NextResponse.json(response);
   } catch (error: unknown) {
     if (axios.isAxiosError(error)) {
       console.error('Teller error response:', error.response?.data);

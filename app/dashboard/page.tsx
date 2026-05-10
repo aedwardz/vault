@@ -26,7 +26,7 @@ const Dashboard = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setAccounts(data.data);
+        setAccounts(data);
       });
   }, []);
 
