@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import styles from './dashboard.module.css';
 import Link from 'next/link';
-import { Account } from '../../lib/types';
+import { Account } from '@/lib/types';
 import AccountCard from '@/components/AccountCard';
 
 const Dashboard = () => {
